@@ -15,38 +15,48 @@ function Basket(){
                 <p>Корзина пуста</p>
             ) : (
                 <div>
-                    {cart.map(item => (
-                        <div key={item.id} style={{
-                            padding: "10px",
-                            margin: "10px 0"
-                        }}>
-                            <h3>{item.name}</h3>
-                            <p>Цена: {item.price} руб.</p>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                <span>Количество:</span>
-                                <button 
-                                    onClick={() => handleQuantityChange(item.id, item.amount - 1)}
-                                    disabled={item.amount <= 1}
-                                >
-                                    -
-                                </button>
-                                <span>{item.amount}</span>
-                                <button 
-                                    onClick={() => handleQuantityChange(item.id, item.amount + 1)}
-                                >
-                                    +
-                                </button>
+                    <div style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "20px",
+                        marginBottom: "20px"
+                    }}>
+                        {cart.map(item => (
+                            <div key={item.id} style={{
+                                padding: "15px",
+                                minWidth: "200px",
+                                backgroundColor: "#f9f9f9"
+                            }}>
+                                <h3>{item.name}</h3>
+                                <p>Цена: {item.price} руб.</p>
+                                <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "10px 0" }}>
+                                    <span>Количество:</span>
+                                    <button 
+                                        onClick={() => handleQuantityChange(item.id, item.amount - 1)}
+                                        disabled={item.amount <= 1}
+                                    >
+                                        -
+                                    </button>
+                                    <span>{item.amount}</span>
+                                    <button 
+                                        onClick={() => handleQuantityChange(item.id, item.amount + 1)}
+                                    >
+                                        +
+                                    </button>
+                                </div>
                                 <button 
                                     onClick={() => removeFromCart(item.id)}
-                                    style={{ marginLeft: "20px", color: "red" }}
+                                    style={{ color: "red", marginTop: "10px" }}
                                 >
                                     Удалить
                                 </button>
+                                <p style={{ marginTop: "10px", fontWeight: "bold" }}>
+                                    Итого: {item.price * item.amount} руб.
+                                </p>
                             </div>
-                            <p>Итого: {item.price * item.amount} руб.</p>
-                        </div>
-                    ))}
-                    <div style={{ marginTop: "20px", padding: "10px" }}>
+                        ))}
+                    </div>
+                    <div style={{ padding: "10px" }}>
                         <h3>Общая сумма: {getTotalPrice()} руб.</h3>
                     </div>
                 </div>
