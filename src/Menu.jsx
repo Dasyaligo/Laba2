@@ -6,14 +6,14 @@ function Menu(){
     const {theme, toggleTheme} = useContext(ThemeContext);
 
     const navLinkStyle = ({isActive}) => ({
-        color: isActive ? "red": theme === "dart " ?"#fff" :"#000",
+        color: isActive ? "red": theme === "dark " ?"#fff" :"#000",
         fontWeight: isActive ? "bold" : "normal",
         marginRight: "10px",
         textDecoration: "none"
     });
 
     const linkStyle = {
-        color: isActive ? "red": theme === "dart " ?"#fff" :"#000",
+        color: theme === "dark" ? "#fff" : "#000",
         marginRight: "10px",
         textDecoration: "none"
         
@@ -29,10 +29,10 @@ function Menu(){
         О нас
         </NavLink>
 
-        <Link to = "/product/1">Товар 1</Link>
-        <Link to = "/product/2">Товар 2</Link>
+        <Link to = "/product/1" style={linkStyle}>Товар 1</Link>
+        <Link to = "/product/2" style={linkStyle}>Товар 2</Link>
 
-        <Link to = "/login" style={ linkStyle}> Вход </Link>
+        <Link to = "/login" style={linkStyle}> Вход </Link>
         <button onClick = {toggleTheme} style = {{ marginLeft: "20px"}}> 
             Переключить тему ({theme})
         </button>

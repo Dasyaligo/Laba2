@@ -7,7 +7,8 @@ function GlobalStyles({ children}){
     const appStyles = {
         backgroundColor: theme === "dark" ? "#333" : "#fff",
         color: theme === "dark" ? "#fff" : "#000",
-        padding: "20 px",
+        minHeight: "100px",
+        padding: "20px",
         margin: 0
     };
 
