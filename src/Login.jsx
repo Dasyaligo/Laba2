@@ -5,20 +5,21 @@ export default function Login(){
 
     function handleLogin(){
         const isAuth = true;
+    
 
-        if(isAuth){
-            navigate("/dashboard"); //Программный переход после логина
-        }
-        else{
-            alert("Ошибка авторизации");
-
-        }
+    if (isAuth){
+        navigate("/dashboard"); 
     }
+    else{
+        alert("Ошибка авторазации");
+    }
+}
 
     return(
-        <div style = {{textAlign: "center", marginTop: "50px"}}>
-            <h2>Старница вход</h2>
+        <div style={{textAlign: "center", marginTop: "50px" }}>
+            <h2>Страница входа</h2>
             <button onClick={handleLogin}>Войти</button>
         </div>
     )
 }
+
